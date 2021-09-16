@@ -1,0 +1,28 @@
+.chatListItem{
+    display:flex;
+    cursor:pointer;
+    align-items:center;
+    height:70px;
+}
+.chatListItem-avatar{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    margin-left:15px;
+
+}
+
+.charListItem-lines{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+.charListItem-line{
+    
+}
+.chartListItem-name{
+
+}
+.charListItem-lastMsg{
+
+}

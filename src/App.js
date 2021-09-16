@@ -5,7 +5,7 @@ import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-export default  () => {
+export default () => {
   return (
     <>
       <div className='sidebar'>

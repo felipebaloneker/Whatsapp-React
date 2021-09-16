@@ -20,9 +20,9 @@ body{
 header{
     height:60px;
     display:flex;
-    justify-content:space-betweem;
+    justify-content:space-between;
     align-items:center;
-
+    padding:0 15px;
 }
 
 .header-avatar{
@@ -34,13 +34,35 @@ header{
 .header-buttons{
     display:flex;
 }
+
 .header-btn{
     width:40px;
     height:40px;
     border-radius:20px;
     display:flex;
     justify-content:center;
+    align-items:center;
     cursor:pointer;
+}
+.search{
+    background-color:#f6f6f6;
+    border-bottom:1px solid #eee;
+    padding:5px 15px;
+}
+.search-input{
+    background-color:#fff;
+    height:40px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    padding: 0 10px;
+}
+
+.search-input input{
+    flex:1;
+    border:0;
+    outline:0;
+    background:transparent;
 }
 
 .contetarea{

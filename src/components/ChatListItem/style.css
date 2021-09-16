@@ -12,17 +12,23 @@
 
 }
 
-.charListItem-lines{
+.chatListItem-lines{
     flex:1;
     display:flex;
     flex-direction:column;
 }
-.charListItem-line{
-    
+.chatListItem-line{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
 }
 .chartListItem-name{
+    font-size:1rem;
+    color:black;
 
 }
-.charListItem-lastMsg{
-
+.chatListItem-date{
+    font-size:1rem;
+    color:#999;
 }

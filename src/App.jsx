@@ -18,10 +18,10 @@ const [chatList,setChatList] = useState([{},{},{},{}]);
             <img src={Avatar} alt=''className='header-avatar' ></img>
             <div className='header-buttons'>
               <div className='header-btn'>
-                  <DonutLargeIcon style={{color:`#919191`}}/>
+                  <DonutLargeIcon style={{color:`#919191`}} />
               </div>
               <div className='header-btn'>
-                  <ChatIcon style={{color:`#919191`}}/>
+                  <ChatIcon style={{color:`#919191`}} />
               </div>
               <div className='header-btn'>
                   <MoreVertIcon style={{color:`#919191`}}/>

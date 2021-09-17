@@ -5,34 +5,55 @@
     height:15vh;
     border-bottom:0.1rem solid #2E2E2E;
 }
+.chatListItem:hover{
+    background-color:#2A2F32;
+}
+.chatListItem.active{
+    background-color:#2A2F32;
+}
 .chatListItem-avatar{
     width:3.5rem;
     height:3.5rem;
     border-radius:3rem;
     margin-left:1rem;
-
 }
 
 .chatListItem-lines{
     flex:1;
+    height:100%;
     display:flex;
     flex-direction:column;
+    justify-content: center;
     padding:1rem;
+
+    flex-wrap:wrap;
+    min-width:0;
 }
 .chatListItem-line{
     display:flex;
     justify-content:space-between;
     align-items:center;
-}
-.chartListItem-name{
-    font-size:0.8rem;
-    color:#ABABAB;
+    width:100%;
 
 }
-.chatListItem-Date{
-    font-size:0.7rem;
+.chatListItem-Name{
+    font-size:1rem;
+    color:#FFF;
+
+}
+.chatListItem-hour{
+    font-size:0.8rem;
     color:#ABABAB;
 }
 .chatListItem-lastMsg{
-    font-size:0.7rem;
+    font-size:0.8rem;
+    color:#ABABAB;
+    display:flex;
+    width:100%;
+}
+.chatListItem-lastMsg p{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    margin:0;
 }

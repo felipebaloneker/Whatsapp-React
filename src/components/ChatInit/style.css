@@ -1,0 +1,19 @@
+.chatinit{
+    display:flex;
+    color:#ABABAB;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    height:100vh;
+    padding:5rem;
+    border-bottom:0.5rem solid #337180; 
+}
+.chatinit h1{
+    font-size:3rem;
+    font-weight:100;
+}
+.chatinit h2{
+    font-size:1rem;
+    font-weight:300;
+}

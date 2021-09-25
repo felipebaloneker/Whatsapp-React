@@ -62,7 +62,7 @@ const [activeChat, setActiveChat] = useState({});
 
       <div className='contentarea'>
                 {activeChat.chatId !== undefined &&
-                  <ChatWindow />
+                  <ChatWindow className="contentChat"/>
                 }
                 {activeChat.chatId === undefined &&
                    <ChatInit/>

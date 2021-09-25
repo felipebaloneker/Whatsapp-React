@@ -1,15 +1,10 @@
-.chatWindow{
-    display:flex;
-    flex-direction:column;
-    height:100vh;
-}
 .chatWindow-header{
-    height:10vh;
     background-color:#2A2F32;
     display:flex;
     justify-content:space-between;
     align-items:center;
     border-bottom:0.1rem solid #2E2E2E;
+    grid-area:header;
 }
 .chatWindow-headerinfo{
     display:flex;
@@ -41,14 +36,13 @@
 }
 .chatWindow-body{
     flex:1;
-    height:80vh;
     overflow-y:auto;
     background-color:#0D1418;
     background-size:cover;
+    grid-area:main;
 }
 
 .chatWindow-footer{
-    height:10vh;
     display:flex;
     justify-content:space-between;
     align-items:center;

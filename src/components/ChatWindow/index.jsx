@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css'
+import EmojiPicker from 'emoji-picker-react'
 import Avatar from '../../assets/images/avatar.svg'
 import SearchIcon from '@material-ui/icons/Search';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
@@ -10,8 +11,13 @@ import CloseIcon from '@material-ui/icons/Close';
 import MicIcon from '@material-ui/icons/Mic';
 
 export default () =>{
+
+    const handleEmojiClick = () => {
+         
+    }
+
     return(
-        <div clasName='chatWindow'>
+        <>
             <div className='chatWindow-header'>
                 <div className='chatWindow-headerinfo'>
                     <img className='chatWindow-avatar' src={Avatar}/>
@@ -32,17 +38,29 @@ export default () =>{
 
             </div>
             <div className='chatWindow-body'>
-
+            <div className='chatWindow-emojiarea'>
+                <EmojiPicker
+                onEmojiClick={handleEmojiClick}
+                disableSearchBar
+                disableSkinTonePicker
+                />
+            </div>
             </div>
             <div className='chatWindow-footer'>
                 <div className='chatWindow-pre'>
+                     <div className='chatWindow-btn'>
+                        <CloseIcon style={{color:'#919191'}}/>
+                    </div>
                     <div className='chatWindow-btn'>
                         <InsertEmoticonIcon style={{color:'#919191'}}/>
                     </div>
                 </div>
 
                 <div className='chatWindow-inputarea'>
-                        <input className='chatWindow-input' type='text'/>
+                        <input className='chatWindow-input' 
+                        type='text'
+                        placeholder='Digite uma mensagem'
+                        />
                 </div>
 
                 <div className='chatWindow-pos '>
@@ -51,6 +69,6 @@ export default () =>{
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

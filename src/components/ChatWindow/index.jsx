@@ -15,7 +15,11 @@ export default () =>{
     const [emojiOpen,setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
-    const [list, setList] = useState([{},{},{}]);
+    const [list, setList] = useState([
+        {body:'blablabla'},
+        {body:'blablabla'},
+        {body:'blablabla'},
+    ]);
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -80,10 +84,12 @@ export default () =>{
 
             </div>
             <div className='chatWindow-body'>
-              {list.map((item,key)=>(
-                  <MessageItem
-                  />
-              ))}
+                    {list.map((item,key)=>(
+                        <MessageItem
+                            key={key}
+                            data={item}
+                        />
+                    ))}
                 <div className='chatWindow-emojiarea'
                 style={{opacity: emojiOpen ? "1" : "0"}}
                 >

@@ -1,8 +1,20 @@
+.messageLine{
+    display:flex;
+    margin:1rem;
+}
 .messageItem{
+    background-color:#262D31;
+    padding:1rem;
+    border-radius:.7rem;
     display:flex;
     flex-direction:column;
-    background-color:#fff;
 }
 .messageText{
-
+    font-size:1rem;
+    color:#fff;
+}
+.messageDate{
+    font-size:.8rem;
+    text-align:right;
+    color:#ABABAB;
 }

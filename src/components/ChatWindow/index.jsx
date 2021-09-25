@@ -38,6 +38,9 @@ export default () =>{
 
             </div>
             <div className='chatWindow-body'>
+            <div>
+            
+            </div>
             <div className='chatWindow-emojiarea'>
                 <EmojiPicker
                 onEmojiClick={handleEmojiClick}

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import './style.css'
 import MessageItem from '../MessageItem'
-
 import EmojiPicker from 'emoji-picker-react'
 import Avatar from '../../assets/images/avatar.svg'
 import SearchIcon from '@material-ui/icons/Search';
@@ -87,15 +86,15 @@ export default () =>{
                     item={item}
                     />
                 })}
-            <div className='chatWindow-emojiarea'
-            style={{opacity: emojiOpen ? "1" : "0"}}
-            >
-                <EmojiPicker
-                onEmojiClick={getEmoji}
-                disableSearchBar
-                disableSkinTonePicker
-                />
-            </div>
+                <div className='chatWindow-emojiarea'
+                style={{opacity: emojiOpen ? "1" : "0"}}
+                >
+                    <EmojiPicker
+                    onEmojiClick={getEmoji}
+                    disableSearchBar
+                    disableSkinTonePicker
+                    />
+                </div>
             </div>
             <div className='chatWindow-footer'>
                 <div className='chatWindow-pre'>

@@ -62,15 +62,14 @@ aside.emoji-picker-react {
     align-items:center;
     background-color:#2A2F32;
     padding:1rem;
-
 }
 .chatWindow-pre{
     display:flex;
 }
 
 .chatWindow-input{
-    width:40vw;
-    height:2rem;
+    width:50vw;
+    height:2.5rem;
     border:0;
     outline:0; 
     border-radius:5rem;

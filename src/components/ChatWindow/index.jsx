@@ -7,18 +7,19 @@ import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import SendIcon from '@material-ui/icons/Send';
-import CloseIcon from '@material-ui/icons/Close';
 import MicIcon from '@material-ui/icons/Mic';
 
 export default () =>{
 
     const [emojiOpen,setEmojiOpen] = useState(false);
-    const handleOpenEmoji = () => {
-        setEmojiOpen(true);
+    const openEmojiArea = () => {
+        {emojiOpen === true ? (
+            setEmojiOpen(false)
+        ):(
+            setEmojiOpen(true)
+        )}
     }
-    const handleCloseEmoji = () =>{
-        setEmojiOpen(false);
-    }
+
 
     return(
         <>
@@ -56,14 +57,8 @@ export default () =>{
             </div>
             <div className='chatWindow-footer'>
                 <div className='chatWindow-pre'>
-                     <div className='chatWindow-btn'
-                     onClick={handleCloseEmoji}
-                     >
-                        <CloseIcon style={{color:'#919191'}}/>
-                        
-                    </div>
                     <div className='chatWindow-btn'
-                    onClick={handleOpenEmoji}
+                    onClick={openEmojiArea}
                     >
                         <InsertEmoticonIcon style={{color:'#919191'}}/>
                     </div>

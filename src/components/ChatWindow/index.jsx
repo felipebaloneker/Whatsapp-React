@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import './style.css'
+import MessageItem from '../MessageItem'
+
 import EmojiPicker from 'emoji-picker-react'
 import Avatar from '../../assets/images/avatar.svg'
 import SearchIcon from '@material-ui/icons/Search';
@@ -13,7 +15,16 @@ export default () =>{
 
     const [emojiOpen,setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
+    const [listening, setListening] = useState(false);
+    const [list, setList] = useState([{},{},{}]);
 
+    let recognition = null;
+    let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if(SpeechRecognition !== undefined){
+        recognition = new SpeechRecognition();
+    }
+    
     // Open Div with emojis
     const openEmojiArea = () => {
         {emojiOpen === true ? (
@@ -26,6 +37,26 @@ export default () =>{
     // Get clicked emoji
     const getEmoji = (e, emojiObject) =>{
         setText(text + emojiObject.emoji);;
+    }
+
+    // Send Functions
+
+    const sendMicMassage = () =>{
+        if(recognition !== null){
+            recognition.onstart = () =>{
+                setListening(true);
+            }
+            recognition.onend = () =>{
+                setListening(false); 
+            }
+            recognition.onresult = (e) =>{
+                setText(e.results[0][0].transcript);
+            }
+            recognition.start();
+        }
+    }
+    const sendTextMessage = () =>{
+
     }
 
     return(
@@ -50,11 +81,14 @@ export default () =>{
 
             </div>
             <div className='chatWindow-body'>
-            <div>
-            
-            </div>
+                {list.map((item,key)=>{
+                    <MessageItem
+                    key={key}
+                    item={item}
+                    />
+                })}
             <div className='chatWindow-emojiarea'
-            style={{height: emojiOpen ? "25vh" : "0"}}
+            style={{opacity: emojiOpen ? "1" : "0"}}
             >
                 <EmojiPicker
                 onEmojiClick={getEmoji}
@@ -84,9 +118,13 @@ export default () =>{
                 <div className='chatWindow-pos '>
                     <div className='chatWindow-btn'>
                     {text === ""?(
-                        <MicIcon style={{color:'#919191'}}/>
+                        <MicIcon style={{color:listening?'#009688':'#919191'}}
+                        onClick={sendMicMassage}
+                        />
                     ):(
-                        <SendIcon style={{color:'#919191'}}/>
+                        <SendIcon style={{color:'#919191'}}
+                        onClick={sendTextMessage}
+                        />
                     )}
                     </div>
                 </div>

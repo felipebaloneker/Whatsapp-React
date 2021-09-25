@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './style.css'
 import EmojiPicker from 'emoji-picker-react'
 import Avatar from '../../assets/images/avatar.svg'
@@ -12,8 +12,12 @@ import MicIcon from '@material-ui/icons/Mic';
 
 export default () =>{
 
-    const handleEmojiClick = () => {
-         
+    const [emojiOpen,setEmojiOpen] = useState(false);
+    const handleOpenEmoji = () => {
+        setEmojiOpen(true);
+    }
+    const handleCloseEmoji = () =>{
+        setEmojiOpen(false);
     }
 
     return(
@@ -41,9 +45,10 @@ export default () =>{
             <div>
             
             </div>
-            <div className='chatWindow-emojiarea'>
+            <div className='chatWindow-emojiarea'
+            style={{height: emojiOpen ? "25vh" : "0"}}
+            >
                 <EmojiPicker
-                onEmojiClick={handleEmojiClick}
                 disableSearchBar
                 disableSkinTonePicker
                 />
@@ -51,10 +56,15 @@ export default () =>{
             </div>
             <div className='chatWindow-footer'>
                 <div className='chatWindow-pre'>
-                     <div className='chatWindow-btn'>
+                     <div className='chatWindow-btn'
+                     onClick={handleCloseEmoji}
+                     >
                         <CloseIcon style={{color:'#919191'}}/>
+                        
                     </div>
-                    <div className='chatWindow-btn'>
+                    <div className='chatWindow-btn'
+                    onClick={handleOpenEmoji}
+                    >
                         <InsertEmoticonIcon style={{color:'#919191'}}/>
                     </div>
                 </div>

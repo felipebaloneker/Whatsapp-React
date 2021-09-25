@@ -36,15 +36,22 @@
     align-items:center;
 }
 .chatWindow-body{
-    flex:1;
+    grid-area:main;
+    display:flex;
     overflow-y:auto;
     background-color:#0D1418;
     background-size:cover;
-    grid-area:main;
+}
+.chatWindow-emojiarea{
+    height:25vh;
+    transition:all ease 0.3s;
+    align-self:flex-end; 
 }
 aside.emoji-picker-react {
-    all:unset!important;
-    background:#2A2F32!important;
+    width:auto !important;
+    background:#2A2F32!important; 
+    border:none!important;
+    box-shadow:none!important;
 }
 .emoji-picker-react .emoji-group:before{
     background:none!important;

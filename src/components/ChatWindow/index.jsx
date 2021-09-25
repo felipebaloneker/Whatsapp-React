@@ -10,15 +10,15 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
-export default () =>{
+export default ({user}) =>{
 
     const [emojiOpen,setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
     const [list, setList] = useState([
-        {body:'blablabla'},
-        {body:'blablabla'},
-        {body:'blablabla'},
+        {author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},
+        {author:12,body:'blablabla'},
     ]);
 
     let recognition = null;
@@ -88,6 +88,7 @@ export default () =>{
                         <MessageItem
                             key={key}
                             data={item}
+                            user={user}
                         />
                     ))}
                 <div className='chatWindow-emojiarea'

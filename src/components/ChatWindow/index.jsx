@@ -60,7 +60,7 @@ export default () =>{
                     <div className='chatWindow-btn'
                     onClick={openEmojiArea}
                     >
-                        <InsertEmoticonIcon style={{color:'#919191'}}/>
+                        <InsertEmoticonIcon style={{color:emojiOpen?'#009688 ':'#919191'}}/>
                     </div>
                 </div>
 

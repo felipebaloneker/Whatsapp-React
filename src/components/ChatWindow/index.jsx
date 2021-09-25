@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './style.css'
-import MessageItem from '../MessageItem'
+import {MessageItem} from '../MessageItem'
 import EmojiPicker from 'emoji-picker-react'
 import Avatar from '../../assets/images/avatar.svg'
 import SearchIcon from '@material-ui/icons/Search';
@@ -80,12 +80,10 @@ export default () =>{
 
             </div>
             <div className='chatWindow-body'>
-                {list.map((item,key)=>{
-                    <MessageItem
-                    key={key}
-                    item={item}
-                    />
-                })}
+              {list.map((item,key)=>(
+                  <MessageItem
+                  />
+              ))}
                 <div className='chatWindow-emojiarea'
                 style={{opacity: emojiOpen ? "1" : "0"}}
                 >

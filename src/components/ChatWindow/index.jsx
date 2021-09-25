@@ -12,6 +12,9 @@ import MicIcon from '@material-ui/icons/Mic';
 export default () =>{
 
     const [emojiOpen,setEmojiOpen] = useState(false);
+    const [text, setText] = useState('');
+
+    // Open Div with emojis
     const openEmojiArea = () => {
         {emojiOpen === true ? (
             setEmojiOpen(false)
@@ -20,6 +23,10 @@ export default () =>{
         )}
     }
 
+    // Get clicked emoji
+    const getEmoji = (e, emojiObject) =>{
+        setText(text + emojiObject.emoji);;
+    }
 
     return(
         <>
@@ -50,6 +57,7 @@ export default () =>{
             style={{height: emojiOpen ? "25vh" : "0"}}
             >
                 <EmojiPicker
+                onEmojiClick={getEmoji}
                 disableSearchBar
                 disableSkinTonePicker
                 />
@@ -68,12 +76,18 @@ export default () =>{
                         <input className='chatWindow-input' 
                         type='text'
                         placeholder='Digite uma mensagem'
+                        value={text}
+                        onChange={e=> setText(e.target.value)}
                         />
                 </div>
 
                 <div className='chatWindow-pos '>
                     <div className='chatWindow-btn'>
+                    {text === ""?(
+                        <MicIcon style={{color:'#919191'}}/>
+                    ):(
                         <SendIcon style={{color:'#919191'}}/>
+                    )}
                     </div>
                 </div>
             </div>

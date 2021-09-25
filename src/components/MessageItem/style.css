@@ -1,6 +1,7 @@
 .messageLine{
     display:flex;
     margin:1rem;
+    padding:0 2rem;
 }
 .messageItem{
     background-color:#262D31;

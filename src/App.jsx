@@ -30,8 +30,12 @@ export default () => {
   })
 
  // Show new Chat
-  const [showNewChat,setShowNewChat] = useState(true);
+  const [showNewChat,setShowNewChat] = useState(false);
 
+  // Abrir novo Chat
+  const openNewChat = () => {
+    setShowNewChat(true);
+  }
 
   return (
     <div className="app-window">
@@ -50,7 +54,9 @@ export default () => {
                   <DonutLargeIcon style={{color:`#919191`}} />
               </div>
               <div className='header-btn'>
-                  <ChatIcon style={{color:`#919191`}} />
+                  <ChatIcon style={{color:`#919191`}} 
+                     onClick={openNewChat}
+                  />
               </div>
               <div className='header-btn'>
                   <MoreVertIcon style={{color:`#919191`}}/>

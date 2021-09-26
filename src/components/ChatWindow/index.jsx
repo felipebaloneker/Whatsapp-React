@@ -18,6 +18,14 @@ export default ({user}) =>{
     const [list, setList] = useState([
         {author:123,body:'blablabla'},
         {author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
+        {author:123,body:'blablabla'},
         {author:12,body:'fala meno'},
     ]);
 
@@ -84,6 +92,9 @@ export default ({user}) =>{
 
             </div>
             <div className='chatWindow-body'>
+                <div className='chatWindow-message'
+                style={{ position: emojiOpen ? "absolute" : "relative"}}
+                >
                     {list.map((item,key)=>(
                         <MessageItem
                             key={key}
@@ -91,11 +102,12 @@ export default ({user}) =>{
                             user={user}
                         />
                     ))}
+                </div>
                 <div className='chatWindow-emojiarea'
-                style={{opacity: emojiOpen ? "1" : "0"}}
+                style={{display: emojiOpen ? "block" : "none"}}
                 >
                     <EmojiPicker
-                    onEmojiClick={getEmoji}
+                    onEmojiClick={{getEmoji}}
                     disableSearchBar
                     disableSkinTonePicker
                     />

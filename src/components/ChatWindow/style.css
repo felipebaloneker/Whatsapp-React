@@ -53,7 +53,7 @@
 .chatWindow-emojiarea{
     display:none;
     height:25vh;
-    margin-top:100vh;
+    margin-top:40vh;
     transition:all 0.3s ease-out ;
     align-self:flex-end;
 }

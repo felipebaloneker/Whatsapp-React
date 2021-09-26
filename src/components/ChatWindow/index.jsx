@@ -18,7 +18,7 @@ export default ({user}) =>{
     const [list, setList] = useState([
         {author:123,body:'blablabla'},
         {author:123,body:'blablabla'},
-        {author:12,body:'blablabla'},
+        {author:12,body:'fala meno'},
     ]);
 
     let recognition = null;

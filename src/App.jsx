@@ -1,10 +1,11 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import './App.css';
 
 // Components import
 import ChatListItem from './components/ChatListItem';
 import ChatInit from './components/ChatInit';
 import ChatWindow from './components/ChatWindow';
+import NewChat from './components/NewChat'
 
 // Images Import
 import Avatar from "./assets/images/avatar.svg";
@@ -28,9 +29,20 @@ export default () => {
     name:"felipe",
   })
 
+ // Show new Chat
+  const [showNewChat,setShowNewChat] = useState(true);
+
+
   return (
     <div className="app-window">
       <div className='sidebar'>
+          <NewChat
+            chatlist={chatList}
+            user={user}
+            show={showNewChat}
+            setShow={setShowNewChat}
+
+          />
           <header>
             <img src={user.avatar} alt=''className='header-avatar' ></img>
             <div className='header-buttons'>

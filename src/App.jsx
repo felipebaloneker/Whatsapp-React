@@ -6,7 +6,7 @@ import ChatListItem from './components/ChatListItem';
 import ChatInit from './components/ChatInit';
 import ChatWindow from './components/ChatWindow';
 import NewChat from './components/NewChat'
-
+import Login from './components/TelaLogin'
 // Images Import
 import Avatar from "./assets/images/avatar.svg";
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
@@ -23,11 +23,7 @@ export default () => {
     ,]);
   
   const [activeChat, setActiveChat] = useState({});
-  const [user,setUser] =useState({
-    id:12,
-    avatar:Avatar,
-    name:"felipe",
-  })
+  const [user,setUser] =useState(null)
 
  // Show new Chat
   const [showNewChat,setShowNewChat] = useState(false);
@@ -35,6 +31,24 @@ export default () => {
   // Abrir novo Chat
   const openNewChat = () => {
     setShowNewChat(true);
+  }
+
+  //Adicionando Dados do usuario
+  const createLoginData = async (u) => {
+    let newUser ={
+      id: u.uid,
+      name: u.displayName,
+      avatar:u.photoURL,
+    }
+    setUser(newUser);
+
+  }
+
+  // Tela de Login caso não tenha usuario logado
+  if(user == null){
+    return(
+      <Login onReceiver={createLoginData}/>
+    )
   }
 
   return (

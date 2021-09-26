@@ -1,12 +1,12 @@
-import '.style'
+import './style.css'
 import Api from '../../services/Api'
 
 
-export default() =>{
-    const handleFacebookLogin = () =>{
+export default({onReceive}) =>{
+    const handleFacebookLogin = async () =>{
         let result = await Api.fbPopup();
         if(result){
-
+            onReceive(result.user )
         }
         else{
             alert('Erro!!!!');

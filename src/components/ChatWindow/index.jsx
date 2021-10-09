@@ -18,6 +18,7 @@ export default ({user,data}) =>{
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
     const [list, setList] = useState([]);
+    const [users,setUsers] = useState([]);
     const body = useRef();
 
     let recognition = null;
@@ -31,7 +32,7 @@ export default ({user,data}) =>{
     // Moritorando Chat selecionado
     useEffect(()=>{
         setList([]);
-        let unsub = Api.onChatContent(data.chatId,setList);
+        let unsub = Api.onChatContent(data.chatId,setList, setUsers);
         return unsub;
 
     },[data.chatId])
@@ -74,8 +75,20 @@ export default ({user,data}) =>{
             recognition.start();
         }
     }
-    const sendTextMessage = () =>{
 
+    // verficando se usuario apertou enter
+    const handleInputKeyUp = (e) =>{
+        if(e.keyCode == 13){
+            sendTextMessage();
+        }
+    }
+    // Enviando mensagem
+    const sendTextMessage = () =>{
+        if(text !== ''){
+            Api.sendMessage(data,user.id, 'text', text, users);
+            setText('');
+            setEmojiOpen(false);
+        }
     }
 
     return(
@@ -135,7 +148,8 @@ export default ({user,data}) =>{
                         type='text'
                         placeholder='Digite uma mensagem'
                         value={text}
-                        onChange={e=> setText(e.target.value)}
+                        onChange={e => setText(e.target.value)}
+                        onKeyUp={handleInputKeyUp}
                         />
                 </div>
 

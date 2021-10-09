@@ -5,7 +5,7 @@
 }
 .messageItem{
     background-color:#262D31;
-    min-width:10rem;
+    min-width:5rem;
     padding:.5rem .3rem .3rem .5rem;
     border-radius:.5rem;
     display:flex;

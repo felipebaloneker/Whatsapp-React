@@ -1,4 +1,4 @@
- import React, {useState} from 'react'
+ import React, {useState,useEffect} from 'react'
 import './App.css';
 
 // Components import
@@ -23,6 +23,14 @@ export default () => {
 
  // Show new Chat
   const [showNewChat,setShowNewChat] = useState(false);
+
+  useEffect(()=>{
+    if(user != null){
+      let unsub = Api.onChatList(user.id,setChatList);
+      return unsub;
+    }
+  },[user])
+
 
   // Abrir novo Chat
   const openNewChat = () => {
@@ -100,6 +108,7 @@ export default () => {
                   <ChatWindow 
                   className="contentChat"
                   user={user}
+                  data={activeChat}
                   />
                 }
                 {activeChat.chatId === undefined &&

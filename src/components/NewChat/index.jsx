@@ -7,6 +7,7 @@ import Api from '../../services/Api'
 export default function NewChat({user, chatlist, show,setShow}){
     const [list,setList] = useState([]);
 
+    // lendo Lista de contatos
     useEffect(()=>{
         const getList = async () =>{
             if(user !== null){
@@ -16,9 +17,17 @@ export default function NewChat({user, chatlist, show,setShow}){
         }
         getList()
     },[user]);
-    console.log(list)
+
+    // Fechando Aba de  Novo Chat
     const closeChatClick = () => {
         setShow(false);
+    }
+
+    // Começando nova Chat
+    const addNewChat = async (user2)=>{
+        await Api.addNewChat(user,user2);
+
+        closeChatClick();
     }
 
     return(
@@ -35,7 +44,7 @@ export default function NewChat({user, chatlist, show,setShow}){
             </div>
             <div className="newChat-list">
                 {list.map((item,key)=>(
-                    <div className='newChat-item' key={key}>
+                    <div onClick={()=>addNewChat(item)} className='newChat-item' key={key}>
                         <img className='newChat-itemavatar' src={item.avatar}/>
                         <div className='newChat-itemname'>{item.name}</div>
                     </div>

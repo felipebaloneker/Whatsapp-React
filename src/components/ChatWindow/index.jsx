@@ -10,24 +10,12 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
 
-export default ({user}) =>{
+export default ({user,data}) =>{
 
     const [emojiOpen,setEmojiOpen] = useState(false);
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
-    const [list, setList] = useState([
-        {author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},{author:123,body:'blablabla'},
-        {author:123,body:'blablabla'},
-        {author:12,body:'fala meno'},
-    ]);
+    const [list, setList] = useState([]);
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -74,8 +62,8 @@ export default ({user}) =>{
         <>
             <div className='chatWindow-header'>
                 <div className='chatWindow-headerinfo'>
-                    <img className='chatWindow-avatar' src={Avatar}/>
-                    <div className='chatWindow-name'>Felipe</div>
+                    <img className ='chatWindow-avatar' src={data.image}/>
+                    <div className='chatWindow-name'>data.tittle</div>
                 </div>
 
                 <div className='chatWindow-headerbtns'>

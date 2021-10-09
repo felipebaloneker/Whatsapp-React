@@ -37,5 +37,53 @@ export default {
             }
         });
         return list;
+    },
+
+    // Começando Novo Chat
+    addNewChat:async(user,user2) =>{
+        let newChat = await db.collection('chats').add({
+            messages:[],
+            users:[user.id,user2.id]
+        });
+
+        db.collection('users').doc(user.id).update({
+            chats:firebase.firestore.FieldValue.arrayUnion({
+                chatId:newChat.id,
+                title:user2.name,
+                image:user2.avatar,
+                with:user2.id
+            })
+        });
+
+        db.collection('users').doc(user2.id).update({
+            chats:firebase.firestore.FieldValue.arrayUnion({
+                chatId:newChat.id,
+                title:user.name,
+                image:user.avatar,
+                with:user.id
+            })
+        });
+    },
+
+    // Moritorando Lista de Chats
+    onChatList:(userId,setChatList)=>{
+        return db.collection('users').doc(userId).onSnapshot((doc)=>{
+            if(doc.exists){
+                let data = doc.data();
+                if(data.chats){
+                    setChatList(data.chats);
+                }
+            }
+        })
+    },
+
+    // Moritorando chat selecionado
+    onChatContent:(chatId, setList) =>{
+        return db.collection('chats').doc(chatId).onSnapshot((doc)=>{
+            if(doc.exists){
+                let data = doc.data();
+            }
+        })
     }
+
 };

@@ -7,6 +7,8 @@ import ChatInit from './components/ChatInit';
 import ChatWindow from './components/ChatWindow';
 import NewChat from './components/NewChat'
 import Login from './components/TelaLogin'
+import Api from './services/Api'
+
 // Images Import
 import Avatar from "./assets/images/avatar.svg";
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
@@ -15,13 +17,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 
 export default () => {
-  const [chatList,setChatList] = useState([
-    {chatId:1, title:'Fulano', image:Avatar},
-    {chatId:2, title:'Fulano', image:Avatar},
-    {chatId:3, title:'Fulano', image:Avatar},
-    {chatId:4, title:'Fulano', image:Avatar}  
-    ,]);
-  
+  const [chatList,setChatList] = useState([]);
   const [activeChat, setActiveChat] = useState({});
   const [user,setUser] =useState(null)
 
@@ -40,6 +36,7 @@ export default () => {
       name: u.displayName,
       avatar:u.photoURL,
     }
+    await Api.addUser(newUser);
     setUser(newUser);
 
   }

@@ -1,14 +1,20 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import './style.css'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import Avatar from "../../assets/images/avatar.svg"
+import Api from '../../services/Api'
 
 export default function NewChat({user, chatlist, show,setShow}){
-    const [list,setList] = useState([
-        {id:123,avatar:Avatar,name:'Fulano'},
-        {id:123,avatar:Avatar,name:'Fulano'},
-        {id:123,avatar:Avatar,name:'Fulano'},
-    ]);
+    const [list,setList] = useState([]);
+
+    useEffect(()=>{
+        const getList = async () =>{
+            if(user !== null){
+                let results = await Api.getContactList(user.id);
+                setList(results);
+            }
+        }
+    })
 
     const closeChatClick = () => {
         setShow(false);

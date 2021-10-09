@@ -10,6 +10,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import SendIcon from '@material-ui/icons/Send';
 import MicIcon from '@material-ui/icons/Mic';
+import Api from '../../services/Api'
 
 export default ({user,data}) =>{
 
@@ -26,6 +27,15 @@ export default ({user,data}) =>{
         recognition = new SpeechRecognition();
     }
     
+
+    // Moritorando Chat selecionado
+    useEffect(()=>{
+        setList([]);
+        let unsub = Api.onChatContent(data.chatId,setList);
+        return unsub;
+
+    },[data.chatId])
+
     // Rolando para final das mensagens
     useEffect(()=>{
         if(body.current.scrolHeight > body.current.offsetHeight){
@@ -73,7 +83,7 @@ export default ({user,data}) =>{
             <div className='chatWindow-header'>
                 <div className='chatWindow-headerinfo'>
                     <img className ='chatWindow-avatar' src={data.image}/>
-                    <div className='chatWindow-name'>data.tittle</div>
+                    <div className='chatWindow-name'>{data.tittle}</div>
                 </div>
 
                 <div className='chatWindow-headerbtns'>

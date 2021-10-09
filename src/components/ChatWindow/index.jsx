@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect,useRef} from 'react'
 import './style.css'
+
 import {MessageItem} from '../MessageItem'
 import EmojiPicker from 'emoji-picker-react'
 import Avatar from '../../assets/images/avatar.svg'
@@ -16,6 +17,7 @@ export default ({user,data}) =>{
     const [text, setText] = useState('');
     const [listening, setListening] = useState(false);
     const [list, setList] = useState([]);
+    const body = useRef();
 
     let recognition = null;
     let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -24,6 +26,14 @@ export default ({user,data}) =>{
         recognition = new SpeechRecognition();
     }
     
+    // Rolando para final das mensagens
+    useEffect(()=>{
+        if(body.current.scrolHeight > body.current.offsetHeight){
+            body.current.scrollTop = body.current.scrollHeight - body.current.offsetHeight;
+        }
+    },[list]);
+
+
     // Open Div with emojis
     const openEmojiArea = () => {
         {emojiOpen === true ? (
@@ -79,7 +89,7 @@ export default ({user,data}) =>{
                 </div>
 
             </div>
-            <div className='chatWindow-body'>
+            <div ref={body} className='chatWindow-body'>
                 <div className='chatWindow-message'
                 style={{ position: emojiOpen ? "absolute" : "relative"}}
                 >

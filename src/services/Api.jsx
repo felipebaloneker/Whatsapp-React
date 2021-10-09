@@ -72,7 +72,7 @@ export default {
                 let data = doc.data();
                 if(data.chats){
                     // ordenando chats 
-                    let chats ={...data.chats};
+                    let chats =[...data.chats];
                     chats.sort((a,b)=>{
                         if(a.lastMessageDate === undefined){
                             return -1;
@@ -86,7 +86,7 @@ export default {
                         else{
                             return -1;
                         }
-                    })
+                    });
                     setChatList(chats);
                 }
             }

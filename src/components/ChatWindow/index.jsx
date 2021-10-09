@@ -55,7 +55,7 @@ export default ({user,data}) =>{
     }
 
     // Get clicked emoji
-    const getEmoji = (e, emojiObject) =>{
+    const handleEmojiClick = (e, emojiObject) =>{
         setText(text + emojiObject.emoji);;
     }
 
@@ -128,7 +128,7 @@ export default ({user,data}) =>{
                 style={{display: emojiOpen ? "block" : "none"}}
                 >
                     <EmojiPicker
-                    onEmojiClick={{getEmoji}}
+                    onEmojiClick={handleEmojiClick}
                     disableSearchBar
                     disableSkinTonePicker
                     />

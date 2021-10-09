@@ -25,14 +25,17 @@ export default {
     // Pegando Lista de Contatos
     getContactList:async(userId)=>{
         let list = []
-        let result = await db.collection('users').get();
-
-        if(result.id !== userId){
+        let results = await db.collection('users').get();
+        results.forEach(result=>{
+            let data = result.data();
+            if(result.id !== userId){
             list.push({
                 id:result.id,
-                name:result.name,
-                avatar:result.avater,
+                name:data.name,
+                avatar:data.avatar,
             });
-        }
+            }
+        });
+        return list;
     }
 };

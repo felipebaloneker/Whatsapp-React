@@ -14,11 +14,13 @@ export default function NewChat({user, chatlist, show,setShow}){
                 setList(results);
             }
         }
-    })
-
+        getList()
+    },[user]);
+    console.log(list)
     const closeChatClick = () => {
         setShow(false);
     }
+
     return(
         <div className='newChat'
             style={{left: show? '0': '-35vw'}}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+ import React, {useState} from 'react'
 import './App.css';
 
 // Components import
@@ -47,7 +47,7 @@ export default () => {
   // Tela de Login caso não tenha usuario logado
   if(user == null){
     return(
-      <Login onReceiver={createLoginData}/>
+      <Login onReceive={createLoginData}/>
     )
   }
 

@@ -11,5 +11,6 @@ export default {
         const provider = new firebase.auth.FacebookAuthProvider();
         let result = await firebaseApp.auth().signInWithPopup(provider);
         return result;
+        
     }
 }

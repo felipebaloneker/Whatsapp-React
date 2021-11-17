@@ -1,4 +1,4 @@
-<img src='./assets/images/image.gif'/>
+<img src='./src/assets/images/image.gif'/>
 
 ## Clone do WhatsApp Web
 Utilizando React e Firestore como banco de dados 
